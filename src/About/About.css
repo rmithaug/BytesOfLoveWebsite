@@ -40,8 +40,20 @@
 
 .credit-cell img {
   width: 30vh; /* Ensure the image covers the container's width */
+  aspect-ratio: 1 / 1; /* Keep every portrait the same shape */
   object-fit: cover;
-  border-radius: 1vh;
+  /* Soft gradient frame: the padding shows a pink-to-purple background
+     around the photo, which reads as a soft, glowing border */
+  padding: 0.8vh;
+  border-radius: 50% 50% 4vh 4vh; /* arched top, gently rounded bottom */
+  background: linear-gradient(160deg, #ffd1f3, #b266b2 55%, #fceca8);
+  box-shadow: 0 0 3vh rgba(178, 102, 178, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.credit-cell:hover img {
+  transform: scale(1.04);
+  box-shadow: 0 0 5vh rgba(178, 102, 178, 0.7);
 }
 
 .credit-name {
